@@ -1,4 +1,3 @@
-
 const http = require('http')
 const express = require('express')
 const path = require('path')
@@ -10,7 +9,6 @@ const router = express.Router()
 
 const app = express()
 const cycle = 60 * 60 * 24 * 7
-
 
 app.use(logger())
 app.use(cookieParser(':)'))
@@ -24,13 +22,15 @@ app.set('view engine', 'ejs')
 app.set('port', process.env.PORT || 7000)
 
 router.get('/', function(req, res) {
-		res.render('index', {
-			email: req.cookies.email ? req.cookies.email : ''
-		})
+	res.render('index', {
+		email: req.cookies.email ? req.cookies.email : ''
+	})
 })
 
 router.post('/email', function(req, res) {
-	res.cookie('email', req.body.email, {maxAge: cycle})
+	res.cookie('email', req.body.email, {
+		maxAge: cycle
+	})
 	res.render('email', {
 		email: req.body.email
 	})
@@ -38,13 +38,11 @@ router.post('/email', function(req, res) {
 
 app.use('/', router)
 
-
 app.use(function(req, res, next) {
-  res.status(404).send('Not Found!')
+	res.status(404).send('Not Found!')
 })
 
-
-app.listen(app.get('port'),function(){
+app.listen(app.get('port'), function() {
 	console.log(`server start on ${app.get('port')} port`)
 })
 
