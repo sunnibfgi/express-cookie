@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>cookies</title>
+  </head>
+  <body>
+  	<form action="/email" method="POST">
+  		<label>email:</label>
+  		<input type="text" value="<%= email %>" name="email" placeholder="your email...">
+  		<input type="submit" value="search">
+  	</form>
+ 	
+  	<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+	var email = document.querySelector('[name=email]')
+	var form = document.forms[0]
+	var match = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
+	form.addEventListener('submit', function(e) {
+		if (!email.value.length) {
+			e.preventDefault()
+			alert('required!')
+			email.focus()
+		}
+		else if (!match.test(email.value)) {
+			e.preventDefault()
+			alert('Invalid mail!')
+			email.focus()
+		}
+	}, false)
+}, false)
+  			
+
+  	</script>
+  </body>
+</html>
