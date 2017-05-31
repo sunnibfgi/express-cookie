@@ -37,7 +37,6 @@ router.post('/email', function(req, res) {
 })
 
 app.use('/', router)
-
 app.use(function(req, res, next) {
 	res.status(404).send('Not Found!')
 })
