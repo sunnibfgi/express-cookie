@@ -11,7 +11,7 @@ const app = express()
 const cycle = 60 * 60 * 24 * 7
 
 app.use(logger())
-app.use(cookieParser(':)'))
+app.use(cookieParser('^_^'))
 app.use(bodyParser.urlencoded({
 	extended: false
 }))
