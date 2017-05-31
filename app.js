@@ -10,7 +10,7 @@ const router = express.Router()
 const app = express()
 const cycle = 60 * 60 * 24 * 7
 
-app.use(logger())
+app.use(process.env.NODE_ENV === 'dev' && logger())
 app.use(cookieParser(':)'))
 app.use(bodyParser.urlencoded({
 	extended: false
