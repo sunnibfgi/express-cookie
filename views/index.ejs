@@ -21,13 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
 		if (!email.value.length) {
 			e.preventDefault()
 			alert('required!')
-			email.focus()
 		}
 		else if (!match.test(email.value)) {
 			e.preventDefault()
 			alert('Invalid mail!')
-			email.focus()
 		}
+		email.focus()
+
 	}, false)
 }, false)
   			
