@@ -42,7 +42,7 @@ app.use(function(req, res, next) {
 	res.status(404).send('Not Found!')
 })
 
-app.listen(app.get('port'), function() {
-	console.log(`server start on ${app.get('port')} port`)
+http.createServer(app)
+.listen(app.get('port'), function() {
+	console.log(`server running at ${app.get('port')} port`)
 })
-
